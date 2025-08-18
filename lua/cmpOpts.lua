@@ -1,4 +1,3 @@
-
 local cmp = require("cmp")
 
 local options = {
@@ -43,7 +42,6 @@ local options = {
 		end
 	end, { "i", "s" }),
 	},
-
 	sources = {
 		{ name = "nvim_lsp"},
 		{ name = "luasnip"},

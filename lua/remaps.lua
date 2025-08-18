@@ -1,4 +1,12 @@
 
+vim.keymap.set("n", " ", "<Nop>", { desc = "Ignore space", silent = true })
+
+-- Remap up and down to go by visual line instead of file line
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+vim.keymap.set("v", "j", "gj")
+vim.keymap.set("v", "k", "gk")
+
 -- Remap to find files or specific phrases in any file
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
@@ -35,6 +43,8 @@ vim.cmd[[function! IndentWithI()
 endfunction
 nnoremap <expr> i IndentWithI()]]
 
+--[[
+
 -- Remaps to use harpoon
 local harpoon = require("harpoon")
 
@@ -45,5 +55,4 @@ vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
-
-
+]]

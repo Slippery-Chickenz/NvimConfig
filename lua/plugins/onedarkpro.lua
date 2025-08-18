@@ -4,5 +4,11 @@ return {
 	opts = {
 		transparency = true,
 		cursorline = true,
-	}
+		colors = {
+			dark = {
+				bg = "#222222",
+				fg = "#BBBBBB",
+			}
+		}
+	},
 }

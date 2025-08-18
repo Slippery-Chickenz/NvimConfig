@@ -1,5 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
+	lazy = false,
 	build = ":TSUpdate",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
@@ -17,6 +19,7 @@ return {
 				"hlsl",
 				"json",
 				"latex",
+				"html",
 			},
 			sync_install = false,
 			highlight = {
