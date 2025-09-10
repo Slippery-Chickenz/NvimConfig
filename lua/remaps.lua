@@ -10,6 +10,8 @@ vim.keymap.set("v", "k", "gk")
 -- Remap to find files or specific phrases in any file
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>fl", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+vim.keymap.set("n", "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_symbols( { symbols='function' } )<cr>")
 
 -- Remap to set file tree as focus
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFocus<cr>")

@@ -1,4 +1,4 @@
-local cmp = require("cmp")
+--[[ --[ local cmp = require("cmp")
 
 local options = {
 	completion = {completeopt = "menu,menuone" },
@@ -51,4 +51,4 @@ local options = {
 	},
 }
 
-return options
+return options ]]

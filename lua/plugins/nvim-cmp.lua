@@ -1,4 +1,5 @@
-return {
+return {}
+--[[ return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {
@@ -32,4 +33,4 @@ return {
 	opts = function()
 		return require("cmpOpts")
 	end,
-}
+} ]]

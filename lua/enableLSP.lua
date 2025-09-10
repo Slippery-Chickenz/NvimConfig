@@ -15,14 +15,19 @@ local function au(typ, pattern, cmdOrFn)
 		vim.api.nvim_create_autocmd(typ, { pattern = pattern, command = cmdOrFn, group = group })
 	end
 end
-
-au({ 'CursorHold', 'InsertLeave' }, nil, function()
+au({ 'CursorHold', 'InsertLeave', 'DiagnosticChanged', 'CursorMoved' }, nil, function()
 	local opts = {
 		focusable = false,
 		scope = 'cursor',
 		close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter' },
+		--border = 'single'
 	}
-	vim.diagnostic.open_float(nil, opts)
+	local bufnm, _ = vim.diagnostic.open_float(nil, opts)
+	if bufnm ~= nil then
+		vim.diagnostic.config({ virtual_text = false, virtual_lines = false, })
+	else
+		vim.diagnostic.config({ virtual_text = true, virtual_lines = false, })
+	end
 end)
 
 au('InsertEnter', nil, function()
@@ -32,3 +37,4 @@ end)
 au('InsertLeave', nil, function()
 	vim.diagnostic.enable(true)
 end)
+-- , 'CursorMoved'
