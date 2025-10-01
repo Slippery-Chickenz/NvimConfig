@@ -15,7 +15,7 @@ local function au(typ, pattern, cmdOrFn)
 		vim.api.nvim_create_autocmd(typ, { pattern = pattern, command = cmdOrFn, group = group })
 	end
 end
-au({ 'CursorHold', 'InsertLeave', 'DiagnosticChanged', 'CursorMoved' }, nil, function()
+au({ 'CursorHold', 'InsertLeave', 'CursorMoved' }, nil, function()
 	local opts = {
 		focusable = false,
 		scope = 'cursor',
@@ -38,3 +38,14 @@ au('InsertLeave', nil, function()
 	vim.diagnostic.enable(true)
 end)
 -- , 'CursorMoved'
+
+-- -- Disable blink in tex files
+-- vim.api.nvim_create_autocmd('BufEnter', {
+-- 	pattern = '*.tex',
+-- 	callback = function()
+-- 		vim.b.completion = false
+-- 	end,
+-- })
+
+
+

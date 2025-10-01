@@ -26,6 +26,7 @@ vim.keymap.set("n", "<leader>q", "<cmd>b#<cr>")
 
 -- Remaps to surround selected text with certain characters
 vim.keymap.set("v", "<leader>s(", "xi()<Esc>P")
+vim.keymap.set("v", "<leader>s)", "xi()<Esc>P")
 
 -- Remaps to go to certain error diagnostics
 vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next)
