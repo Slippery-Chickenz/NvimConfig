@@ -1,6 +1,7 @@
 vim.lsp.enable("pyright")
 vim.lsp.enable('luals')
 vim.lsp.enable('clangd')
+vim.lsp.enable('cmake-language-server')
 
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
@@ -38,14 +39,3 @@ au('InsertLeave', nil, function()
 	vim.diagnostic.enable(true)
 end)
 -- , 'CursorMoved'
-
--- -- Disable blink in tex files
--- vim.api.nvim_create_autocmd('BufEnter', {
--- 	pattern = '*.tex',
--- 	callback = function()
--- 		vim.b.completion = false
--- 	end,
--- })
-
-
-
