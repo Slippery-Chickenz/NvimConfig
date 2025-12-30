@@ -1,7 +1,8 @@
 return {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
-  dependencies = { 'L3MON4D3/LuaSnip' },-- 'rafamadriz/friendly-snippets' },
+  dependencies = { 'L3MON4D3/LuaSnip', "micangl/cmp-vimtex" },-- 'rafamadriz/friendly-snippets' },
+  -- dependencies = { 'rafamadriz/friendly-snippets' },
 
   -- use a release tag to download pre-built binaries
   version = '1.*',
@@ -38,17 +39,32 @@ return {
     },
 
 	signature = { enabled = true },
+	snippets = { preset = 'luasnip' },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
 			documentation = { auto_show = true },
 			ghost_text = { enabled = true},
+			menu = {
+				draw = {
+					columns = {
+						{ "label", "label_description", gap = 1},
+						{ "kind_icon", "kind" },
+					}
+				}
+			}
 		},
-
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+		default = { 'lsp', 'path', 'snippets', 'buffer', 'vimtex' },
+		providers = {
+			vimtex = {
+				name = 'vimtex',
+				module = "blink.compat.source",
+				score_offset = -3,
+			},
+		},
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -56,7 +72,8 @@ return {
     -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
     --
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    -- fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = { implementation = "lua" }
   },
   opts_extend = { "sources.default" }
 }

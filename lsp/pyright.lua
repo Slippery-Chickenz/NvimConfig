@@ -55,6 +55,10 @@ return {
 	settings =  {
 		python = {
 		analysis = {
+		  --[[ diagnosticSeverityOverrides = {
+					reportUnusedImport = "warning",
+					reportUnusedFunction = "warning",
+					reportUnusedVariable = "warning", }, ]]
 		  autoSearchPaths = true,
 		  diagnosticMode = "openFilesOnly",
 		  useLibraryCodeForTypes = true

@@ -1,3 +1,4 @@
+-- return {}
 return {
 	"olimorris/onedarkpro.nvim",
 	priority = 1000,
@@ -6,7 +7,7 @@ return {
 		cursorline = true,
 		colors = {
 			dark = {
-				bg = "#222222",
+				bg = "#1e1e1e", -- "#222222",
 				fg = "#BBBBBB",
 			}
 		}

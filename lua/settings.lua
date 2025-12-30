@@ -1,17 +1,3 @@
-local o = vim.opt
-
---[[ o.number = true
-o.relativenumber = true
-o.syntax = "on"
-o.autoindent = true
-o.cursorline = true
-o.shiftwidth = 4
-o.tabstop = 4
-o.ruler = true
-o.title = true
-o.showcmd = true
-o.scrolloff = 100 ]]
-
 
 -- Basic settings
 vim.opt.number = true                              -- Line numbers
@@ -20,6 +6,7 @@ vim.opt.cursorline = true                          -- Highlight current line
 vim.opt.wrap = true                                -- Don't wrap lines
 vim.opt.scrolloff = 100                            -- Keep 10 lines above/below cursor 
 vim.opt.sidescrolloff = 8                          -- Keep 8 columns left/right of cursor
+vim.opt.smoothscroll = true
 
 -- Indentation
 vim.opt.tabstop = 4                                -- Tab width

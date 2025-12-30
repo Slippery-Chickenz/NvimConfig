@@ -6,6 +6,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	opts = {
-		filters = { enable = false }
+		filters = { enable = false },
+		diagnostics = { enable = true },
 	},
 }

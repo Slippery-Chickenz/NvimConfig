@@ -39,3 +39,4 @@ au('InsertLeave', nil, function()
 	vim.diagnostic.enable(true)
 end)
 -- , 'CursorMoved'
+
