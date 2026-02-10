@@ -15,6 +15,7 @@ vim.opt.softtabstop = 2                            -- Soft tab stop
 vim.opt.expandtab = false                          -- Use spaces instead of tabs
 vim.opt.smartindent = true                         -- Smart auto-indenting
 vim.opt.autoindent = true                          -- Copy indent from current line
+vim.opt.foldlevel = 99
 
 -- Search settings
 vim.opt.ignorecase = true                          -- Case insensitive search
@@ -34,7 +35,7 @@ vim.opt.showmode = false                           -- Don't show mode in command
 vim.opt.pumheight = 10                             -- Popup menu height 
 vim.opt.pumblend = 10                              -- Popup menu transparency 
 vim.opt.winblend = 0                               -- Floating window transparency 
-vim.opt.conceallevel = 0                           -- Don't hide markup 
+vim.opt.conceallevel = 2                           -- Don't hide markup 
 vim.opt.concealcursor = ""                         -- Don't hide cursor line markup 
 vim.opt.lazyredraw = true                          -- Don't redraw during macros
 vim.opt.synmaxcol = 300                            -- Syntax highlighting limit 
@@ -64,6 +65,8 @@ vim.opt.clipboard:append("unnamedplus")            -- Use system clipboard
 vim.opt.modifiable = true                          -- Allow buffer modifications
 vim.opt.encoding = "UTF-8"                         -- Set encoding
 
+-- Shell Settings
+
 -- Cursor settings
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
@@ -72,3 +75,11 @@ vim.opt.splitbelow = true                          -- Horizontal splits go below
 vim.opt.splitright = true                          -- Vertical splits go right
 
 vim.cmd("colorscheme onedark_vivid")
+--
+-- close qflist when selecting a file
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true })
+  end,
+})

@@ -20,8 +20,8 @@ vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFocus<cr>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 
 -- Remap to move between the open buffers
-vim.keymap.set("n", "<leader>n", "<cmd>cnext<cr>")
-vim.keymap.set("n", "<leader>p", "<cmd>cprev<cr>")
+-- vim.keymap.set("n", "<leader>n", "<cmd>cnext<cr>")
+-- vim.keymap.set("n", "<leader>p", "<cmd>cprev<cr>")
 vim.keymap.set("n", "<leader>q", "<cmd>b#<cr>")
 
 -- Remaps to surround selected text with certain characters
@@ -35,6 +35,18 @@ vim.keymap.set("n", "<leader>N", vim.diagnostic.goto_prev)
 -- Move paragraphs with alt j/k
 vim.keymap.set("n", "<A-j>", "}")
 vim.keymap.set("n", "<A-k>", "{")
+
+-- Remaps for neorg commands
+vim.keymap.set("n", "<leader>mn", function ()
+	vim.cmd([[ execute "normal \<Plug>(neorg.dirman.new-note)"]])
+	vim.cmd([[ execute "normal a"]])
+	vim.cmd("startinsert")
+end)
+
+vim.keymap.set("n", "<leader>go", "<cmd>Neorg toc<CR>")
+vim.keymap.set("n", "<leader>d", "<Plug>(neorg.qol.todo-items.todo.task-done)")
+vim.keymap.set("n", "<leader>u", "<Plug>(neorg.qol.todo-items.todo.task-undone)")
+vim.keymap.set("i", "<C-o>", "<Plug>(neorg.itero.next-iteration)")
 
 -- Func to automatically indent the correct amount when entering insert mode
 vim.cmd[[function! IndentWithI()
