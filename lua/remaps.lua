@@ -25,8 +25,14 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 vim.keymap.set("n", "<leader>q", "<cmd>b#<cr>")
 
 -- Remaps to surround selected text with certain characters
-vim.keymap.set("v", "<leader>s(", "xi()<Esc>P")
-vim.keymap.set("v", "<leader>s)", "xi()<Esc>P")
+-- vim.keymap.set("v", "<leader>s(", "xi()<Esc>P")
+-- vim.keymap.set("v", "<leader>s)", "xi()<Esc>P")
+-- surround
+vim.keymap.set("v", "(", "c(<ESC>pa)")
+vim.keymap.set("v", "'", "c'<ESC>pa'")
+vim.keymap.set("v", '"', 'c"<ESC>pa"')
+vim.keymap.set("v", '[', 'c[<ESC>pa]')
+vim.keymap.set("v", '{', 'c{<ESC>pa}')
 
 -- Remaps to go to certain error diagnostics
 vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next)
@@ -47,6 +53,7 @@ vim.keymap.set("n", "<leader>go", "<cmd>Neorg toc<CR>")
 vim.keymap.set("n", "<leader>d", "<Plug>(neorg.qol.todo-items.todo.task-done)")
 vim.keymap.set("n", "<leader>u", "<Plug>(neorg.qol.todo-items.todo.task-undone)")
 vim.keymap.set("i", "<C-o>", "<Plug>(neorg.itero.next-iteration)")
+vim.keymap.set("n", "<leader>o", "i<Plug>(neorg.itero.next-iteration)")
 
 -- Func to automatically indent the correct amount when entering insert mode
 vim.cmd[[function! IndentWithI()

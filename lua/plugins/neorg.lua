@@ -21,6 +21,8 @@ return {
 				},
 				["core.itero"] = {},
 				["core.promo"] = {},
+				["core.summary"] = {},
+				["core.integrations.treesitter"] = {},
 				["core.qol.toc"] = {
 					config = {
 						close_after_use = true,

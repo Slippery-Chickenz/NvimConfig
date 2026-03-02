@@ -3,4 +3,5 @@ require("settings")
 require("remaps")
 require("enableLSP")
 require("luasnipSetup")
+require("customcolors")
 

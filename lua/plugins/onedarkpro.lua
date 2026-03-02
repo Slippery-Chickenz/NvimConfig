@@ -10,6 +10,9 @@ return {
 				bg = "#1e1e1e", -- "#222222",
 				fg = "#BBBBBB",
 			}
-		}
+		},
+		highlights = {
+			["@markup.link.url"] = { fg = "#1fdec8" },
+		},
 	},
 }
