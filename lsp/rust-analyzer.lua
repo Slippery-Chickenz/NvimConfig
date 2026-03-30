@@ -12,12 +12,12 @@ local on_attach = function(_, bufnr)
 end
 
 return {
-	cmd = { "clangd" },
+	cmd = { "rust-analyzer" },
 	filetypes = {
-		"c",
-		"cpp"
+		"rs",
+		"rust",
 	},
-	root_markers = { ".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git" },
+	root_markers = { ".git" },
 	on_attach = function(client)
 		client.server_capabilities.documentFormattingProvider = false
 		client.server_capabilities.documentRangeFormattingProvider = false

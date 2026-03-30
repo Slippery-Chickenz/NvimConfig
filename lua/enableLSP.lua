@@ -2,6 +2,7 @@ vim.lsp.enable("pyright")
 vim.lsp.enable('luals')
 vim.lsp.enable('clangd')
 vim.lsp.enable('cmake-language-server')
+vim.lsp.enable('rust-analyzer')
 
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
