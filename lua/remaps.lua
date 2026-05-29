@@ -1,4 +1,5 @@
 
+-- Ignore the space key because its the leader
 vim.keymap.set("n", " ", "<Nop>", { desc = "Ignore space", silent = true })
 
 -- Remap up and down to go by visual line instead of file line
@@ -7,27 +8,22 @@ vim.keymap.set("n", "k", "gk")
 vim.keymap.set("v", "j", "gj")
 vim.keymap.set("v", "k", "gk")
 
--- Remap to find files or specific phrases in any file
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
-vim.keymap.set("n", "<leader>fl", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
-vim.keymap.set("n", "<leader>fd", "<cmd>lua require('telescope.builtin').lsp_document_symbols( { symbols={'function', 'method'} } )<cr>")
-
--- Remap to set file tree as focus
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFocus<cr>")
+-- Commands to move around lsp diagnostics
+local attach_opts = { silent = true }
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, attach_opts)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, attach_opts)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, attach_opts)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, attach_opts)
+vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, attach_opts)
+vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, attach_opts)
 
 -- Remap to use Esc to go to normal mode in the terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 
--- Remap to move between the open buffers
--- vim.keymap.set("n", "<leader>n", "<cmd>cnext<cr>")
--- vim.keymap.set("n", "<leader>p", "<cmd>cprev<cr>")
+-- Remap to move between to previous buffer
 vim.keymap.set("n", "<leader>q", "<cmd>b#<cr>")
 
 -- Remaps to surround selected text with certain characters
--- vim.keymap.set("v", "<leader>s(", "xi()<Esc>P")
--- vim.keymap.set("v", "<leader>s)", "xi()<Esc>P")
--- surround
 vim.keymap.set("v", "(", "c(<ESC>pa)")
 vim.keymap.set("v", "'", "c'<ESC>pa'")
 vim.keymap.set("v", '"', 'c"<ESC>pa"')
@@ -42,18 +38,20 @@ vim.keymap.set("n", "<leader>N", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "<A-j>", "}")
 vim.keymap.set("n", "<A-k>", "{")
 
--- Remaps for neorg commands
-vim.keymap.set("n", "<leader>mn", function ()
-	vim.cmd([[ execute "normal \<Plug>(neorg.dirman.new-note)"]])
-	vim.cmd([[ execute "normal a"]])
-	vim.cmd("startinsert")
-end)
+-- Still need to add neorg to config
 
-vim.keymap.set("n", "<leader>go", "<cmd>Neorg toc<CR>")
-vim.keymap.set("n", "<leader>d", "<Plug>(neorg.qol.todo-items.todo.task-done)")
-vim.keymap.set("n", "<leader>u", "<Plug>(neorg.qol.todo-items.todo.task-undone)")
-vim.keymap.set("i", "<C-o>", "<Plug>(neorg.itero.next-iteration)")
-vim.keymap.set("n", "<leader>o", "i<Plug>(neorg.itero.next-iteration)")
+-- Remaps for neorg commands
+-- vim.keymap.set("n", "<leader>mn", function ()
+-- 	vim.cmd([[ execute "normal \<Plug>(neorg.dirman.new-note)"]])
+-- 	vim.cmd([[ execute "normal a"]])
+-- 	vim.cmd("startinsert")
+-- end)
+--
+-- vim.keymap.set("n", "<leader>go", "<cmd>Neorg toc<CR>")
+-- vim.keymap.set("n", "<leader>d", "<Plug>(neorg.qol.todo-items.todo.task-done)")
+-- vim.keymap.set("n", "<leader>u", "<Plug>(neorg.qol.todo-items.todo.task-undone)")
+-- vim.keymap.set("i", "<C-o>", "<Plug>(neorg.itero.next-iteration)")
+-- vim.keymap.set("n", "<leader>o", "i<Plug>(neorg.itero.next-iteration)")
 
 -- Func to automatically indent the correct amount when entering insert mode
 vim.cmd[[function! IndentWithI()
@@ -64,30 +62,3 @@ vim.cmd[[function! IndentWithI()
     endif
 endfunction
 nnoremap <expr> i IndentWithI()]]
-
-
-
-local list_snips = function()
-	local ft_list = require("luasnip").available()[vim.o.filetype]
-	local ft_snips = {}
-	for _, item in pairs(ft_list) do
-		ft_snips[item.trigger] = item.name
-	end
-	print(vim.inspect(ft_snips))
-end
-
-vim.api.nvim_create_user_command("SnipList", list_snips, {})
-
---[[
-
--- Remaps to use harpoon
-local harpoon = require("harpoon")
-
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set("n", "<leader>r", function() harpoon:list():remove() end)
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
-]]

@@ -1,5 +1,5 @@
--- Telescope to search for files and terms
-vim.pack.add( { "https://github.com/nvim-telescope/telescope.nvim",  } )
+-- Oil file manager
+vim.pack.add( { "https://github.com/stevearc/oil.nvim" } )
 require("oil").setup({
 	default_file_explorer = true,
 	columns = { "icon", },
@@ -14,7 +14,6 @@ require("oil").setup({
 
 -- Set keymap to open file explorer
 vim.keymap.set("n", "<leader>e", function()
-	require("oil").open_float()
-	require("oil").open_preview()
+	require("oil").toggle_float(nil, { preview = { vertical = true } })
 end
 )

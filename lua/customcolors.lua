@@ -1,3 +1,4 @@
+-- Costom colors for markdown files
 vim.api.nvim_set_hl(0,
 					'@neorg.headings.1.title.norg',
 					{ link = '@markup.heading.1.markdown' })
