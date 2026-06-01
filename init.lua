@@ -26,11 +26,14 @@ require("diagnostics")
 -- Install oil for file browsing
 require("plugins/oil")
 
--- Install treesitter and parsers
-require("plugins/treesitter")
+-- Install arborist and tree-sitter parsers
+require("plugins/arborist")
 
 -- Lualine for status bar
 require("plugins/lualine")
 
 -- fzf-lua to search for files
 require("plugins/fzf-lua")
+
+-- Neorg for notes
+require("plugins/neorg")
