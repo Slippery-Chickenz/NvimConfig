@@ -37,3 +37,6 @@ require("plugins/fzf-lua")
 
 -- Neorg for notes
 require("plugins/neorg")
+
+-- VimTex for LaTeX
+require("plugins.vimtex")
