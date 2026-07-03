@@ -25,5 +25,6 @@ local ensureInstalled = {
 						"json",
 						"norg",
 						"norg-meta",
+						"qmljs"
 						}
 						--"latex",
