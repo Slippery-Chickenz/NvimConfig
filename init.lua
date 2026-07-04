@@ -40,3 +40,7 @@ require("plugins/neorg")
 
 -- VimTex for LaTeX
 require("plugins.vimtex")
+
+-- Highlight hex colors
+require("plugins/nvim-highlight-colors")
+
