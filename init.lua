@@ -26,6 +26,9 @@ require("diagnostics")
 -- Install oil for file browsing
 require("plugins/oil")
 
+-- Install lsp diagnostics for oil
+require("plugins/oil-lsp-diag")
+
 -- Install arborist and tree-sitter parsers
 require("plugins/arborist")
 
