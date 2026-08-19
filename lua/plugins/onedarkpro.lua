@@ -19,6 +19,3 @@ require("onedarkpro").setup({
 		["@markup.link.url"] = { fg = "#1fdec8" },
 	},
 })
-
--- Set colorscheme
-vim.cmd("colorscheme onedark")

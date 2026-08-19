@@ -7,6 +7,10 @@ require("remaps")
 
 -- Load color scheme
 require("plugins/onedarkpro")
+require("plugins/lytmode")
+
+-- Set colorscheme
+vim.cmd("colorscheme lytmode")
 
 -- Load custom colors mostly for markdown files
 require("customcolors")

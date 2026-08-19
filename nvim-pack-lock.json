@@ -24,6 +24,10 @@
       "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "lytmode.nvim": {
+      "rev": "9a75b45c61a5ff6e8c26f8e711cc8043060eeb35",
+      "src": "https://github.com/github-main-user/lytmode.nvim"
+    },
     "neorg": {
       "rev": "1f14d72aad7165eac307a2a2f6be0fb97a04b3c2",
       "src": "https://github.com/nvim-neorg/neorg"
